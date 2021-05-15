@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ListaCandidatos" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" isSummaryWithPageHeaderAndFooter="true" uuid="6d1fb4c8-68f7-4d3d-981b-5107f2d5773e">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="130"/>
+	<parameter name="idconcurso" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="homologado" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select (SELECT count(c2.id_candidato)
+FROM candidato c2
+INNER JOIN inscricao i2 ON i2.id_candidato = c2.id_candidato
+WHERE c2.id_escolaridade = es.id_escolaridade
+AND i2.homologado = i.homologado
+GROUP BY c2.id_escolaridade) as total,
+(SELECT count(c2.id_candidato)
+FROM candidato c2
+INNER JOIN inscricao i2 ON i2.id_candidato = c2.id_candidato
+WHERE i2.homologado = i.homologado) as totalgeral, co.titulo AS concurso, ca.titulo AS cargo,
+ins.logo, ins.instituicao, co.subtitulo, es.grau_instrucao, i.homologado
+from candidato c
+INNER JOIN inscricao i ON i.id_candidato = c.id_candidato
+INNER JOIN concurso co ON co.id_concurso = i.id_concurso
+INNER JOIN escolaridade es ON es.id_escolaridade = c.id_escolaridade
+AND i.homologado = $P{homologado}
+INNER JOIN cargo ca ON ca.id_cargo = i.id_cargo
+INNER JOIN estado e ON c.id_estado = e.id_estado
+INNER JOIN instituicao ins ON ins.id_instituicao = co.id_instituicao
+WHERE co.id_concurso = $P{idconcurso}
+GROUP BY es.grau_instrucao
+ORDER BY es.grau_instrucao, ca.titulo, c.nome]]>
+	</queryString>
+	<field name="total" class="java.lang.Long"/>
+	<field name="totalgeral" class="java.lang.Long"/>
+	<field name="concurso" class="java.lang.String"/>
+	<field name="cargo" class="java.lang.String"/>
+	<field name="logo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="instituicao" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="subtitulo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="grau_instrucao" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="homologado" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<group name="Escolaridade">
+		<groupExpression><![CDATA[$F{grau_instrucao}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="90" splitType="Stretch">
+			<line>
+				<reportElement x="1" y="88" width="801" height="1" uuid="cbd54da1-81e8-476b-9708-ebed63ab2b15"/>
+			</line>
+			<image scaleImage="FillFrame">
+				<reportElement x="2" y="2" width="70" height="84" uuid="1ef1456d-236c-44c1-9ada-6d612c6d3fbf"/>
+				<imageExpression><![CDATA["http://www.noroesteconcursos.com.br/www5/admin/arquivoslogos/"+$F{logo}]]></imageExpression>
+			</image>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="79" y="17" width="723" height="16" uuid="c54fe6a6-4f43-4eef-b5ca-d49cbffa268f"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Concurso: "+$F{concurso} + " / " + $F{subtitulo}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="80" y="1" width="723" height="16" uuid="18992bd7-086f-4cf8-b14b-d04d7733cb9b"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{instituicao}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="80" y="33" width="721" height="17" uuid="9425988e-adde-4efd-93f5-21010add1885"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Relatório Estatístico de Candidatos " + ($F{homologado} == 1 ? " Homologados" : " Não Homologados") + " por Escolaridade"]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageFooter>
+		<band height="15" splitType="Stretch">
+			<textField>
+				<reportElement mode="Opaque" x="12" y="0" width="749" height="13" backcolor="#E6E6E6" uuid="1b2bc575-baff-4e75-a36f-b9c98d3f8e4f"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="761" y="0" width="40" height="13" backcolor="#E6E6E6" uuid="d685249b-2873-4e1c-8e06-3d69d21da661"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="336">
+			<pie3DChart>
+				<chart>
+					<reportElement x="12" y="15" width="772" height="303" uuid="c85ac7b4-52d6-4b03-8017-18ff726d9a28"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<pieDataset>
+					<keyExpression><![CDATA[$F{grau_instrucao}]]></keyExpression>
+					<valueExpression><![CDATA[$F{total}]]></valueExpression>
+					<labelExpression><![CDATA[$F{grau_instrucao}+": " + $F{total} + " - " + (($F{total}.multiply(new BigDecimal("100") )).divide( $F{totalgeral}, 2, java.math.RoundingMode.HALF_UP))+ "%"
+]]></labelExpression>
+				</pieDataset>
+				<pie3DPlot>
+					<plot/>
+					<itemLabel/>
+				</pie3DPlot>
+			</pie3DChart>
+		</band>
+	</summary>
+</jasperReport>

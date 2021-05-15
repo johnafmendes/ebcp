@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RelatorioTeste" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="08750841-c1ec-49f7-8170-c6619b3ec922">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="logo" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select id_concurso, titulo from concurso]]>
+	</queryString>
+	<field name="id_concurso" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="titulo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699" uuid="eca7bcfe-f0f5-4be5-a72d-da193b8d9d14"/>
+				<staticText>
+					<reportElement x="159" y="20" width="304" height="43" forecolor="#FFFFFF" uuid="cc478d22-74fb-42db-8e98-664232d0c433"/>
+					<textElement>
+						<font size="34" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Relatório Teste]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="375" y="43" width="200" height="20" forecolor="#FFFFFF" uuid="3c710714-97d0-4b0a-a2be-c14266b87cb2"/>
+					<textElement textAlignment="Right">
+						<font size="14" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Descrição do Primeiro Relatório]]></text>
+				</staticText>
+				<image scaleImage="FillFrame">
+					<reportElement x="20" y="20" width="100" height="60" uuid="cf50a5c7-af68-44b2-99ce-9194c6a2f433"/>
+					<imageExpression><![CDATA["http://www.noroesteconcursos.com.br/www5/resources/images/"+$P{logo}]]></imageExpression>
+				</image>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="13"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21">
+			<line>
+				<reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="fc5128b3-3314-4c4f-8929-b6f8a9b3adad"/>
+			</line>
+			<staticText>
+				<reportElement x="0" y="1" width="100" height="20" uuid="05807829-7831-4d2d-b1b9-d32f2d34fe09"/>
+				<text><![CDATA[id_concurso]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="1" width="295" height="20" uuid="2170b40b-ead5-49aa-a642-c434712dc68e"/>
+				<text><![CDATA[titulo]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1" uuid="ebda24a8-a7d0-49e1-8450-d02b7e4bbd93"/>
+			</line>
+			<textField>
+				<reportElement x="0" y="0" width="100" height="20" uuid="a1106b92-5803-4c9c-8c04-61d772402f06"/>
+				<textFieldExpression><![CDATA[$F{id_concurso}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="0" width="455" height="20" uuid="69094524-b675-43ef-963e-d0e613a0d67f"/>
+				<textFieldExpression><![CDATA[$F{titulo}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="17">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6" uuid="a89c6868-5bd0-4cf2-837f-eade2c6446fa"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6" uuid="ffc3608b-db1e-4530-9f1a-be33e795e6db"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="4" width="100" height="13" uuid="d3260e0c-a6e3-48d1-9c81-bcac3bdea686"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>

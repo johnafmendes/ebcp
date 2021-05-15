@@ -1,0 +1,694 @@
+body {
+	margin: 0;
+	font-family: Arial;
+	color: #333333;
+	width: 980px;
+	margin: 0 auto 0 auto;
+	font-size: small;
+}
+
+table, th, td {
+	font-family: Arial;
+	color: #333333;
+	font-size: small;
+}
+
+a{
+	text-decoration: none;
+	color: #355239;
+}
+
+a:hover{
+	text-decoration: underline;
+}
+
+.tituloConcurso{
+	background: url(../images/link_marker1.gif) 0 3px no-repeat !important;
+	padding: 0 0px 0 12px !important;
+	text-decoration: none !important;
+	font-size: small;	
+	color: #355239;
+	font-weight: bold;
+}
+
+.subtituloConcurso{
+	text-decoration: none !important;
+	font-size: x-small;	
+	color: #355239;
+}
+
+.espacoBranco{
+	margin: 10px;	
+}
+
+#logo{
+	float:left;	
+	width:150px;
+	display:block;
+	padding: 10px;
+}
+
+.borda{
+	border:1px solid;	
+	border-color:#355239;
+	padding: 5px
+}
+
+.titulo{
+	margin:0px;	
+	padding:5px;
+	background-color:#7bb181;
+	color:#355239;
+}
+
+.corpo{
+	padding:5px;	
+}
+
+
+.topo{
+	height:120px;
+	background-color:#7BB181;
+	border-top: solid 7px #355239;
+}
+
+/* Start of Column CSS */
+#container2 {
+	clear:left;
+	float:left;
+	width:100%;
+	overflow:hidden;
+	/*background:#999; /* column 2 background colour */
+	/*border:5px solid;
+	border-color:#000000;*/
+}
+
+#container1 {
+	float:left;
+	width:100%;
+	position:relative;
+	right:30%;/*30*/
+	/*background:#555; /* column 1 background colour */
+	/*border:5px solid;
+	border-color:#666666;*/
+}
+
+#col1 {
+	float:left;
+	width:70%;/*70%*/
+	position:relative;
+	left:30%; /*30%*/
+	overflow:hidden;
+}
+
+#col2 {
+	float:left;
+	width:28%;/*28%*/
+	position:relative;
+	left:31%;/*31%*/
+	overflow:hidden;
+}
+/* --> */
+
+#menu {
+	margin-top:76px;
+	float:right;
+	display:block;
+	width:800px;
+}
+
+#content {
+	border-left: solid 5px #226622;
+	border-right: solid 5px #226622;
+}
+
+#footer {
+	clear:both;
+	float:left;
+	width:100%;
+	height:80px;
+	margin-top: 20px;
+	padding-top: 15px;
+	border-top: solid 7px #355239;
+	font-size: 16px;
+	font-weight:bold;
+	text-align:center;
+	color: #355239;
+	background-color:#7bb181;
+}
+
+/*menu*/
+
+@import url(http://fonts.googleapis.com/css?family=PT+Sans:400,700);
+#cssmenu {
+  background: #7BB181;
+  margin: 0;
+  width: auto;
+  padding: 0;
+  line-height: 1;
+  display: block;
+  position: relative;
+  font-family: 'PT Sans', sans-serif;
+}
+#cssmenu ul {
+  list-style: none;
+  margin: 0;
+  padding-left: 5px;
+  display: block;
+}
+#cssmenu ul:after,
+#cssmenu:after {
+  content: " ";
+  display: block;
+  font-size: 0;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+#cssmenu ul li {
+  margin: 0;
+  padding: 0;
+  display: block;
+  position: relative;
+  z-index:9999 !important;
+}
+#cssmenu ul li a {
+  text-decoration: none;
+  display: block;
+  margin: 0;
+  -webkit-transition: color .2s ease;
+  -moz-transition: color .2s ease;
+  -ms-transition: color .2s ease;
+  -o-transition: color .2s ease;
+  transition: color .2s ease;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+#cssmenu ul li ul {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+}
+#cssmenu ul li ul li {
+  max-height: 0;
+  position: absolute;
+  -webkit-transition: max-height 0.4s ease-out;
+  -moz-transition: max-height 0.4s ease-out;
+  -ms-transition: max-height 0.4s ease-out;
+  -o-transition: max-height 0.4s ease-out;
+  transition: max-height 0.4s ease-out;
+  background: #7BB181;
+/*  color:#FFFFFF;*/
+}
+#cssmenu ul li ul li.has-sub:after {
+  display: block;
+  position: absolute;
+  content: "";
+  height: 10px;
+  width: 10px;
+  border-radius: 5px;
+  background: #355239;
+  z-index: 1;
+  top: 13px;
+  right: 15px;
+}
+#cssmenu.align-right ul li ul li.has-sub:after {
+  right: auto;
+  left: 15px;
+}
+#cssmenu ul li ul li.has-sub:before {
+  display: block;
+  position: absolute;
+  content: "";
+  height: 0;
+  width: 0;
+  border: 3px solid transparent;
+  border-left-color: #355239;
+  z-index: 2;
+  top: 15px;
+  right: 15px;
+}
+#cssmenu.align-right ul li ul li.has-sub:before {
+  right: auto;
+  left: 15px;
+  border-left-color: transparent;
+  border-right-color: #355239;
+}
+#cssmenu ul li ul li a {
+  font-size: 14px;
+  font-weight: 400;
+  text-transform: none;
+  color: #ffffff;
+  letter-spacing: 0;
+  display: block;
+  width: 170px;
+  padding: 11px 10px 11px 20px;
+}
+#cssmenu ul li ul li:hover > a,
+#cssmenu ul li ul li.active > a {
+  color: #355239;
+}
+#cssmenu ul li ul li:hover:after,
+#cssmenu ul li ul li.active:after {
+  background: #006308;
+}
+#cssmenu ul li ul li:hover > ul {
+  left: 100%;
+  top: 0;
+}
+#cssmenu ul li ul li:hover > ul > li {
+  max-height: 72px;
+  position: relative;
+}
+#cssmenu > ul > li {
+  float: left;
+}
+#cssmenu.align-center > ul > li {
+  float: none;
+  display: inline-block;
+}
+#cssmenu.align-center > ul {
+  text-align: center;
+}
+#cssmenu.align-center ul ul {
+  text-align: left;
+}
+#cssmenu.align-right > ul {
+  float: right;
+}
+#cssmenu.align-right > ul > li:hover > ul {
+  left: auto;
+  right: 0;
+}
+#cssmenu.align-right ul ul li:hover > ul {
+  right: 100%;
+  left: auto;
+}
+#cssmenu.align-right ul ul li a {
+  text-align: right;
+}
+#cssmenu > ul > li:after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 0;
+  top: 0;
+  z-index: 0;
+  background: #ffffff;
+  -webkit-transition: height .2s;
+  -moz-transition: height .2s;
+  -ms-transition: height .2s;
+  -o-transition: height .2s;
+  transition: height .2s;
+}
+#cssmenu > ul > li.has-sub > a {
+  padding-right: 40px;
+}
+#cssmenu > ul > li.has-sub > a:after {
+  display: block;
+  content: "";
+  background: #355239;
+  height: 12px;
+  width: 12px;
+  position: absolute;
+  border-radius: 13px;
+  right: 14px;
+  top: 16px;
+}
+#cssmenu > ul > li.has-sub > a:before {
+  display: block;
+  content: "";
+  border: 4px solid transparent;
+  border-top-color: #7BB181;
+  z-index: 2;
+  height: 0;
+  width: 0;
+  position: absolute;
+  right: 16px;
+  top: 21px;
+}
+#cssmenu > ul > li > a {
+  color: #355239;
+  padding: 15px 18px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-size: 14px;
+  z-index: 2;
+  position: relative;
+}
+#cssmenu > ul > li:hover:after,
+#cssmenu > ul > li.active:after {
+  height: 100%;
+}
+#cssmenu > ul > li:hover > a,
+#cssmenu > ul > li.active > a {
+  color: #355239;
+}
+#cssmenu > ul > li:hover > a:after,
+#cssmenu > ul > li.active > a:after {
+  background: #355239;
+}
+#cssmenu > ul > li:hover > a:before,
+#cssmenu > ul > li.active > a:before {
+  border-top-color: #ffffff;
+}
+#cssmenu > ul > li:hover > ul {
+  left: 0;
+}
+#cssmenu > ul > li:hover > ul > li {
+  max-height: 72px;
+  position: relative;
+}
+#cssmenu #menu-button {
+  display: none;
+}
+#cssmenu > ul > li > a {
+  display: block;
+}
+#cssmenu > ul > li {
+  width: auto;
+}
+#cssmenu > ul > li > ul {
+  width: 170px;
+  display: block;
+}
+#cssmenu > ul > li > ul > li {
+  width: 170px;
+  display: block;
+}
+@media all and (max-width: 800px), only screen and (-webkit-min-device-pixel-ratio: 2) and (max-width: 1024px), only screen and (min--moz-device-pixel-ratio: 2) and (max-width: 1024px), only screen and (-o-min-device-pixel-ratio: 2/1) and (max-width: 1024px), only screen and (min-device-pixel-ratio: 2) and (max-width: 1024px), only screen and (min-resolution: 192dpi) and (max-width: 1024px), only screen and (min-resolution: 2dppx) and (max-width: 1024px) {
+  #cssmenu > ul {
+    max-height: 0;
+    overflow: hidden;
+    -webkit-transition: max-height 0.35s ease-out;
+    -moz-transition: max-height 0.35s ease-out;
+    -ms-transition: max-height 0.35s ease-out;
+    -o-transition: max-height 0.35s ease-out;
+    transition: max-height 0.35s ease-out;
+  }
+  #cssmenu > ul > li > ul {
+    width: 100%;
+    display: block;
+  }
+  #cssmenu.align-right ul li a {
+    text-align: left;
+  }
+  #cssmenu > ul > li > ul > li {
+    width: 100%;
+    display: block;
+  }
+  #cssmenu.align-right ul ul li a {
+    text-align: left;
+  }
+  #cssmenu > ul > li > ul > li > a {
+    width: 100%;
+    display: block;
+  }
+  #cssmenu ul li ul li a {
+    width: 100%;
+  }
+  #cssmenu.align-center > ul {
+    text-align: left;
+  }
+  #cssmenu.align-center > ul > li {
+    display: block;
+  }
+  #cssmenu > ul.open {
+    max-height: 1000px;
+    border-top: 1px solid rgba(110, 110, 110, 0.25);
+  }
+  #cssmenu ul {
+    width: 100%;
+  }
+  #cssmenu ul > li {
+    float: none;
+    width: 100%;
+  }
+  #cssmenu ul li a {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 12px 20px;
+  }
+  #cssmenu ul > li:after {
+    display: none;
+  }
+  #cssmenu ul li.has-sub > a:after,
+  #cssmenu ul li.has-sub > a:before,
+  #cssmenu ul li ul li.has-sub:after,
+  #cssmenu ul li ul li.has-sub:before {
+    display: none;
+  }
+  #cssmenu ul li ul,
+  #cssmenu ul li ul li ul,
+  #cssmenu ul li ul li:hover > ul,
+  #cssmenu.align-right ul li ul,
+  #cssmenu.align-right ul li ul li ul,
+  #cssmenu.align-right ul li ul li:hover > ul {
+    left: 0;
+    position: relative;
+    right: auto;
+  }
+  #cssmenu ul li ul li,
+  #cssmenu ul li:hover > ul > li {
+    max-height: 999px;
+    position: relative;
+    background: none;
+  }
+  #cssmenu ul li ul li a {
+    padding: 8px 20px 8px 35px;
+    color: #ffffff;
+  }
+  #cssmenu ul li ul ul li a {
+    padding: 8px 20px 8px 50px;
+  }
+  #cssmenu ul li ul li:hover > a {
+    color: #000000;
+  }
+  #cssmenu #menu-button {
+    display: block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 15px 20px;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1px;
+    color: #ffffff;
+    cursor: pointer;
+  }
+  #cssmenu #menu-button:after {
+    display: block;
+    content: '';
+    position: absolute;
+    height: 3px;
+    width: 22px;
+    border-top: 2px solid #ffffff;
+    border-bottom: 2px solid #ffffff;
+    right: 20px;
+    top: 16px;
+  }
+  #cssmenu #menu-button:before {
+    display: block;
+    content: '';
+    position: absolute;
+    height: 3px;
+    width: 22px;
+    border-top: 2px solid #ffffff;
+    right: 20px;
+    top: 26px;
+  }
+}
+
+/*área do candidato*/
+/* Input field */
+.login-form .content .input {
+	width: 198px;/*247*/
+	padding: 15px 25px;
+
+	font-weight: 400;
+	font-size: 14px;
+	color: #9d9e9e;
+	text-shadow: 1px 1px 0 rgba(256,256,256,1.0);
+	
+	background: #fff;
+	border: 1px solid #fff;
+	border-radius: 5px;
+	
+	box-shadow: inset 0 1px 3px rgba(0,0,0,0.50);
+	-moz-box-shadow: inset 0 1px 3px rgba(0,0,0,0.50);
+	-webkit-box-shadow: inset 0 1px 3px rgba(0,0,0,0.50);
+}
+
+/* Second input field */
+.login-form .content .password, .login-form .content .pass-icon {
+	margin-top: 25px;
+}
+
+.login-form .content .input:hover {
+	background: #dfe9ec;
+	color: #414848;
+}
+
+.login-form .content .input:focus {
+	background: #DFECE2;
+	color: #414848;
+	
+	box-shadow: inset 0 1px 2px rgba(0,0,0,0.25);
+	-moz-box-shadow: inset 0 1px 2px rgba(0,0,0,0.25);
+	-webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.25);
+}
+
+/*******************
+FOOTER
+*******************/
+
+.login-form .rodapeBotoes {
+	padding-top: 0px;
+	overflow: hidden;
+}
+
+/* Login button */
+/*.login-form .rodapeBotoes */.button {
+	/*float:left;*/
+	display: block;
+	padding: 10px 20px;
+	
+	font-weight: 300;
+	font-size: 18px;
+	color: #fff;
+	text-shadow: 0px 1px 0 rgba(0,0,0,0.25);
+	
+	background: #7bb181;
+	border: 1px solid #355239;
+	border-radius: 5px;
+	cursor: pointer;
+	
+	box-shadow: inset 0 0 2px rgba(53,82,57,1.00);
+	-moz-box-shadow: inset 0 0 2px rgba(53,82,57,1.00);
+	-webkit-box-shadow: inset 0 0 2px rgba(53,82,57,1.00);
+}
+
+/*.login-form .rodapeBotoes */.button:hover {
+	background: #355239;
+	border: 1px solid rgba(53,82,57,1.00);
+	
+	box-shadow: inset 0 1px 3px rgba(0,0,0,0.5);
+	-moz-box-shadow: inset 0 1px 3px rgba(0,0,0,0.5);
+	-webkit-box-shadow: inset 0 1px 3px rgba(0,0,0,0.5);
+}
+
+/*.login-form .rodapeBotoes */.button:focus {
+	position: relative;
+	bottom: -1px;
+	
+	background: #355239;
+	
+	box-shadow: inset 0 1px 6px rgba(53,82,57,1.00);
+	-moz-box-shadow: inset 0 1px 6px rgba(53,82,57,1.00);
+	-webkit-box-shadow: inset 0 1px 6px rgba(53,82,57,1.00);
+}
+
+/* Register button */
+/*.login-form .rodapeBotoes */.register {
+	display: block;
+	float: left;
+	/*padding: 0px;*/
+	padding: 10px 15px;
+	margin-right: 10px;
+	
+	background: none;
+	border: none;
+	cursor: pointer;
+	
+	font-weight: 300;
+	font-size: 18px;
+	color: #7bb181;
+	text-shadow: 0px 1px 0 #355239;
+}
+
+/*.login-form .rodapeBotoes */.register:hover {
+	color: #355239;
+}
+
+/*.login-form .rodapeBotoes */.register:focus {
+	position: relative;
+	bottom: -1px;
+}
+
+
+
+
+
+
+
+
+/*----- Tabs -----*/
+.tabs {
+    width:100%;
+    display:inline-block;
+}
+ 
+/*----- Tab Links -----*/
+/* Clearfix */
+.tab-links:after {
+	display:block;
+	clear:both;
+	content:'';
+}
+ 
+.tab-links li {
+	margin:0px 5px;
+	float:left;
+	list-style:none;
+}
+ 
+.tab-links a {
+	padding:9px 15px;
+	display:inline-block;
+	border-radius:3px 3px 0px 0px;
+	background:#355239;
+	font-size:16px;
+	font-weight:600;
+	color:#7bb181;
+	transition:all linear 0.15s;
+}
+ 
+.tab-links a:hover {
+	background:#7bb181;
+	color: #355239;
+	text-decoration:none;
+}
+ 
+.tab-links li.active a, li.active a:hover {
+	background:#7bb181;
+	color:#355239;
+}
+ 
+/*----- Content of Tabs -----*/
+.tab-content {
+	margin-top:-13px;
+	padding:15px;
+	border-radius:3px;
+	box-shadow:-1px 1px 1px rgba(0,0,0,0.15);
+	background:#fff;
+	border: 2px solid;
+	border-color: #7bb181;
+}
+ 
+.tab {
+	display:none;
+	
+}
+ 
+.tab.active {
+	display:block;
+}
+/*fim tab*/
+        

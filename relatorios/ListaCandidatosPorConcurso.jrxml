@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ListaCandidatos" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6d1fb4c8-68f7-4d3d-981b-5107f2d5773e">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="idconcurso" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select i.id_inscricao, c.nome, c.rg, c.cpf, c.endereco, c.cidade, e.sigla, c.cep, c.telefone, c.email, co.titulo AS concurso, ca.titulo AS cargo, ins.logo, ins.instituicao, co.subtitulo from candidato c
+INNER JOIN inscricao i ON i.id_candidato = c.id_candidato
+INNER JOIN concurso co ON co.id_concurso = i.id_concurso
+INNER JOIN cargo ca ON ca.id_cargo = i.id_cargo
+INNER JOIN estado e ON c.id_estado = e.id_estado
+INNER JOIN instituicao ins ON ins.id_instituicao = co.id_instituicao
+WHERE co.id_concurso = $P{idconcurso}
+ORDER BY ca.titulo, c.nome]]>
+	</queryString>
+	<field name="id_inscricao" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nome" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="rg" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cpf" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="endereco" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cidade" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="sigla" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cep" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="telefone" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="email" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="concurso" class="java.lang.String"/>
+	<field name="cargo" class="java.lang.String"/>
+	<field name="logo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="instituicao" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="subtitulo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="90" splitType="Stretch">
+			<line>
+				<reportElement x="1" y="88" width="801" height="1" uuid="cbd54da1-81e8-476b-9708-ebed63ab2b15"/>
+			</line>
+			<image scaleImage="FillFrame">
+				<reportElement x="2" y="2" width="70" height="84" uuid="1ef1456d-236c-44c1-9ada-6d612c6d3fbf"/>
+				<imageExpression><![CDATA["http://www.noroesteconcursos.com.br/www5/admin/arquivoslogos/"+$F{logo}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="79" y="33" width="724" height="16" forecolor="#000000" uuid="2497649c-24b6-4ddd-b8b7-7fdd988959d7"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Lista de Candidatos Por Concurso]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="79" y="17" width="723" height="16" uuid="c54fe6a6-4f43-4eef-b5ca-d49cbffa268f"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Concurso: "+$F{concurso} + " / " + $F{subtitulo}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="80" y="1" width="723" height="16" uuid="18992bd7-086f-4cf8-b14b-d04d7733cb9b"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{instituicao}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="23" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="72" height="20" uuid="eac80107-be98-422d-94e9-96805a3f50ba"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Inscrição]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="72" y="0" width="158" height="20" uuid="c61349b7-701c-4302-8c3d-149791609587"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nome]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="21" width="802" height="1" uuid="7c321747-d195-4438-aafa-1bf47c5256f9"/>
+			</line>
+			<staticText>
+				<reportElement x="366" y="0" width="84" height="20" uuid="3b9dfaab-f6c9-426e-b611-5f12ff6f2d7b"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Documento/CPF]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="683" y="0" width="119" height="20" uuid="02770955-93c5-4aa2-8908-c3bccd26e5e7"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[e-Mail]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="230" y="0" width="136" height="20" uuid="8a57739a-5d79-4b09-9770-c7f876ae7ace"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cargo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="450" y="0" width="138" height="20" uuid="1f19adf4-fa1a-49ad-b39d-4aac67f3c99f"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Endereço]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="588" y="0" width="95" height="20" uuid="f9a9946e-fc65-48f8-989b-c20f9750f4c4"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Telefone]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="0" y="0" width="70" height="20" uuid="3b676e0e-70f8-43a0-8053-ea32bc66f4ec"/>
+				<textElement>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{id_inscricao}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="75" y="0" width="152" height="20" uuid="b5fdeb09-1d91-4e52-86b2-fb1885cf6e00"/>
+				<textElement>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="368" y="0" width="80" height="20" uuid="360bfd9f-2325-46ed-a6c6-e0063c350ed6"/>
+				<textElement>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{rg} + " / \n" + $F{cpf}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="686" y="0" width="116" height="20" uuid="d0af4a16-e2dc-4d46-9744-1beb0e1803bc"/>
+				<textElement>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{email}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="232" y="0" width="132" height="20" uuid="68421100-bb1d-45fe-a6de-064bb3fe2495"/>
+				<textElement>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cargo}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="452" y="0" width="134" height="20" uuid="c016ee49-4554-4b27-96e5-2ec62c47d828"/>
+				<textElement>
+					<font isUnderline="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{endereco} + " \nCidade: " + $F{cidade} + " \nEstado: " + $F{sigla}
++ " \nCEP: " + $F{cep}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" stretchType="RelativeToTallestObject" x="590" y="0" width="91" height="20" uuid="ccddea3b-728b-484e-96d8-abf8528f18dd"/>
+				<textElement>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{telefone}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="1" y="19" width="801" height="1" uuid="3e9e5a83-21c7-445d-a141-cdb485f47407"/>
+			</line>
+			<line direction="BottomUp">
+				<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="72" y="0" width="1" height="20" uuid="afa2bc67-fb89-4b75-895c-7e47f30de3f7"/>
+			</line>
+			<line direction="BottomUp">
+				<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="229" y="0" width="1" height="20" uuid="5f25281b-fe92-4d2b-a921-3b3cd36803e3"/>
+			</line>
+			<line direction="BottomUp">
+				<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="450" y="0" width="1" height="20" uuid="dd519621-ba3b-48e0-8c7c-12dd3021f6bc"/>
+			</line>
+			<line direction="BottomUp">
+				<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="683" y="0" width="1" height="20" uuid="c7e4f0fe-9cd1-4bb0-a327-a191090e52fb"/>
+			</line>
+			<line direction="BottomUp">
+				<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="588" y="0" width="1" height="20" uuid="ddd5c4df-86ae-4194-8a7d-b8c2b1a310c0"/>
+			</line>
+			<line direction="BottomUp">
+				<reportElement positionType="Float" stretchType="RelativeToBandHeight" x="365" y="0" width="1" height="20" uuid="a8ffda21-dace-43f2-bb49-a41c639ccb5d"/>
+			</line>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="15" splitType="Stretch">
+			<textField>
+				<reportElement mode="Opaque" x="12" y="0" width="749" height="13" backcolor="#E6E6E6" uuid="1b2bc575-baff-4e75-a36f-b9c98d3f8e4f"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="761" y="0" width="40" height="13" backcolor="#E6E6E6" uuid="d685249b-2873-4e1c-8e06-3d69d21da661"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ListaCandidatos" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6d1fb4c8-68f7-4d3d-981b-5107f2d5773e">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[select id_candidato, nome, cpf, email from candidato]]>
+	</queryString>
+	<field name="id_candidato" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nome" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cpf" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="email" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="93" splitType="Stretch">
+			<line>
+				<reportElement x="2" y="92" width="552" height="1" uuid="cbd54da1-81e8-476b-9708-ebed63ab2b15"/>
+			</line>
+			<image scaleImage="FillFrame">
+				<reportElement x="2" y="2" width="70" height="84" uuid="1ef1456d-236c-44c1-9ada-6d612c6d3fbf"/>
+				<imageExpression><![CDATA["repo:/reports/ebcp/images/logo"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="78" y="19" width="477" height="17" forecolor="#000000" uuid="2497649c-24b6-4ddd-b8b7-7fdd988959d7"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Lista de Candidatos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="77" y="2" width="477" height="17" forecolor="#000000" uuid="73f55f0e-f825-43c3-9b98-8f6f422967ab"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[EBCP Concursos]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="23" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="78" height="20" uuid="eac80107-be98-422d-94e9-96805a3f50ba"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="78" y="0" width="217" height="20" uuid="c61349b7-701c-4302-8c3d-149791609587"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nome]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="21" width="554" height="1" uuid="7c321747-d195-4438-aafa-1bf47c5256f9"/>
+			</line>
+			<staticText>
+				<reportElement x="295" y="1" width="116" height="20" uuid="3b9dfaab-f6c9-426e-b611-5f12ff6f2d7b"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[CPF]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="411" y="1" width="143" height="20" uuid="02770955-93c5-4aa2-8908-c3bccd26e5e7"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[e-Mail]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="78" height="20" uuid="3b676e0e-70f8-43a0-8053-ea32bc66f4ec"/>
+				<textFieldExpression><![CDATA[$F{id_candidato}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="78" y="0" width="217" height="20" uuid="b5fdeb09-1d91-4e52-86b2-fb1885cf6e00"/>
+				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="295" y="0" width="116" height="20" uuid="360bfd9f-2325-46ed-a6c6-e0063c350ed6"/>
+				<textFieldExpression><![CDATA[$F{cpf}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="411" y="0" width="143" height="20" uuid="d0af4a16-e2dc-4d46-9744-1beb0e1803bc"/>
+				<textFieldExpression><![CDATA[$F{email}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="15" splitType="Stretch">
+			<textField>
+				<reportElement mode="Opaque" x="2" y="2" width="515" height="13" backcolor="#E6E6E6" uuid="1b2bc575-baff-4e75-a36f-b9c98d3f8e4f"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="515" y="2" width="40" height="13" backcolor="#E6E6E6" uuid="d685249b-2873-4e1c-8e06-3d69d21da661"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="2" y="2" width="100" height="13" uuid="51e69d92-bb90-4ee6-abfd-35d78fefd1f2"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>
